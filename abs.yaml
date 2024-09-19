@@ -1,4 +1,4 @@
 upload_channels:
   - sfe1ed40
 channels:
-  - https://staging.continuum.io/prefect/fs/structlog-feedstock/pr3/54a1833
+  - https://staging.continuum.io/prefect/fs/structlog-feedstock/pr3/4b53cdc
