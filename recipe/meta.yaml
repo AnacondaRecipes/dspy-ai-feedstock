@@ -53,7 +53,7 @@ test:
     - dspy
   commands:
     - pip check
-    - pytest
+    - pytest -v
   requires:
     - pip
     - pytest
