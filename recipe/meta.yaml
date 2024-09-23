@@ -10,18 +10,20 @@ source:
   sha256: e0327376b135ff72b16c13c989aeb5f72e34f787381fe396520d3f99b67956e1
 
 build:
-  noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   number: 0
+  skip: true  # [py<39 or py>311 or s390x]
 
 requirements:
   host:
-    - python >=3.9,<3.12
+    - python
     - pip
+    - setuptools
+    - wheel
   run:
-    - python >=3.9,<3.12
-    - backoff ~=2.2.1
-    - joblib ~=1.3.2
+    - python
+    - backoff >=2.2,<3.0a0
+    - joblib >=1.3,<2.0a0
     - openai >=0.28.1,<2.0.0
     - pandas
     - regex
@@ -30,27 +32,39 @@ requirements:
     - datasets >=2.14.6,<3.0.0
     - requests
     - optuna
-    - pydantic ~=2.0
-    - structlog
+    - pydantic >=2.0,<3.0a0
+    # Previous versions of structlog are missing processors.CallsiteParameterAdder
+    - structlog >=22.1
     - jinja2
   run_constrained:
-    - anthropic ~=0.18.0
-    - chromadb ~=0.4.14
+    - anthropic >=0.18.0,<1.0.0
+    - chromadb >=0.4.14,<0.5.0a0
     - fastembed >=0.2.0
-    - marqo *
     - qdrant-client >=1.6.2
-    - pinecone-client ~=2.2.4
-    - weaviate-client ~=4.5.4
-    - pymilvus ~=2.3.7
-    - boto3 ~=1.34.78
+    - pyepsilla >=0.3.7,<0.4.0a0
+    - pinecone-client >=2.2.4,<2.3.0a0
+    - weaviate-client >=4.5.4,<4.6.0a0
+    - pymilvus >=2.3.7,<2.4.0a0
+    - boto3 >=1.34.78,<1.35.0a0
 
 test:
+  source_files:
+    - tests
   imports:
     - dspy
   commands:
     - pip check
+    - pytest -vv tests  # [not win]
+    # skip test_multi_thread_evaluate_call_cancelled on win because
+    # it sends a SIGINT with os.kill(os.getpid(), signal.SIGINT) and
+    # makes the whole pytest quit.
+    - pytest -vv tests -k "not test_multi_thread_evaluate_call_cancelled"  # [win]
   requires:
     - pip
+    - pytest
+    - pytest-mock
+    - pytorch
+    - transformers
 
 about:
   home: https://github.com/stanfordnlp/dspy
@@ -58,9 +72,11 @@ about:
   description: |
     DSPy: The framework for programming—not prompting—foundation models
   license: MIT
+  license_family: MIT
   license_file: LICENSE
   doc_url: https://dspy-docs.vercel.app/
+  dev_url: https://github.com/stanfordnlp/dspy
 
 extra:
   recipe-maintainers:
-    - mukhery
+    - viridianmelody
