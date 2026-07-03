@@ -1,0 +1,67 @@
+From 9744c19c33ef5747c301d3e8ef992c0574721715 Mon Sep 17 00:00:00 2001
+From: Andrii Osipov <aosipov@anaconda.com>
+Date: Fri, 3 Jul 2026 01:18:22 -0700
+Subject: [PATCH 1/2] fix gepa dependency
+
+---
+ PKG-INFO                   | 2 +-
+ dspy.egg-info/PKG-INFO     | 2 +-
+ dspy.egg-info/requires.txt | 2 +-
+ pyproject.toml             | 2 +-
+ 4 files changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/PKG-INFO b/PKG-INFO
+index c9afad5..c6bd25c 100644
+--- a/PKG-INFO
++++ b/PKG-INFO
+@@ -49,7 +49,7 @@ Requires-Dist: cachetools>=5.5.0
+ Requires-Dist: cloudpickle>=3.1.2
+ Requires-Dist: numpy>=1.26.0
+ Requires-Dist: xxhash>=3.5.0
+-Requires-Dist: gepa[dspy]==0.0.27
++Requires-Dist: gepa==0.0.27
+ Requires-Dist: typeguard==4.4.3
+ Provides-Extra: anthropic
+ Requires-Dist: anthropic<1.0.0,>=0.18.0; extra == "anthropic"
+diff --git a/dspy.egg-info/PKG-INFO b/dspy.egg-info/PKG-INFO
+index c9afad5..c6bd25c 100644
+--- a/dspy.egg-info/PKG-INFO
++++ b/dspy.egg-info/PKG-INFO
+@@ -49,7 +49,7 @@ Requires-Dist: cachetools>=5.5.0
+ Requires-Dist: cloudpickle>=3.1.2
+ Requires-Dist: numpy>=1.26.0
+ Requires-Dist: xxhash>=3.5.0
+-Requires-Dist: gepa[dspy]==0.0.27
++Requires-Dist: gepa==0.0.27
+ Requires-Dist: typeguard==4.4.3
+ Provides-Extra: anthropic
+ Requires-Dist: anthropic<1.0.0,>=0.18.0; extra == "anthropic"
+diff --git a/dspy.egg-info/requires.txt b/dspy.egg-info/requires.txt
+index b63b7a6..e684e11 100644
+--- a/dspy.egg-info/requires.txt
++++ b/dspy.egg-info/requires.txt
+@@ -14,7 +14,7 @@ cachetools>=5.5.0
+ cloudpickle>=3.1.2
+ numpy>=1.26.0
+ xxhash>=3.5.0
+-gepa[dspy]==0.0.27
++gepa==0.0.27
+ typeguard==4.4.3
+ 
+ [anthropic]
+diff --git a/pyproject.toml b/pyproject.toml
+index ca7a3d2..e7f3679 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -37,7 +37,7 @@ dependencies = [
+     "cloudpickle>=3.1.2",
+     "numpy>=1.26.0",
+     "xxhash>=3.5.0",
+-    "gepa[dspy]==0.0.27",
++    "gepa==0.0.27",
+     "typeguard==4.4.3",
+ ]
+ 
+-- 
+2.39.5 (Apple Git-154)
+

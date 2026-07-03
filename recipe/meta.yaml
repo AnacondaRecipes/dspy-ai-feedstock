@@ -9,7 +9,8 @@ source:
   - url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
     sha256: 245d6531753cd3e844e7cc47835cfb283c8f57a36a977beabe5034457d9c7241
     patches:
-      patches/0001-relax-typeguard.patch
+      - patches/0001-fix-gepa-dependency.patch
+      - patches/0002-relax-typeguard.patch
   - url: https://github.com/stanfordnlp/{{ name }}/archive/refs/tags/{{ version }}.tar.gz
     sha256: e273a6f6ee8254857294cf4a02faf85ea7b42d58dad7f6838e482ea849f8cb07
     folder: gh_src
