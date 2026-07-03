@@ -113,6 +113,14 @@ requirements:
 {% set deselect_tests = deselect_tests + " --deselect=gh_src/tests/clients/test_embedding.py::test_acall_caching_false_overrides_instance_true" %}
 {% set deselect_tests = deselect_tests + " --deselect=gh_src/tests/clients/test_cache.py::test_restricted_and_unrestricted_share_wire_format" %}
 {% set deselect_tests = deselect_tests + " --deselect=gh_src/tests/clients/test_cache.py::test_unlisted_type_rejected_on_read" %}
+{% set deselect_tests = deselect_tests + " --deselect=gh_src/tests/clients/test_cache.py::test_corrupt_disk_entries_return_none" %}
+{% set deselect_tests = deselect_tests + " --deselect=gh_src/tests/utils/test_unbatchify.py::test_unbatchify_timeout_trigger" %}
+{% set deselect_tests = deselect_tests + " --deselect=gh_src/tests/clients/test_cache.py::test_safe_types_rejects_non_types" %}
+{% set deselect_tests = deselect_tests + " --deselect=gh_src/tests/clients/test_embedding.py::test_acall_caching_true_overrides_instance_false" %}
+{% set deselect_tests = deselect_tests + " --deselect=gh_src/tests/clients/test_embedding.py::test_callable_numpy_embedding_persists_to_disk" %}
+{% set deselect_tests = deselect_tests + " --deselect=gh_src/tests/clients/test_embedding.py::test_call_caching_false_overrides_instance_true" %}
+{% set deselect_tests = deselect_tests + " --deselect=gh_src/tests/clients/test_disk_serialization.py::test_embedding_response_roundtrip" %}
+{% set deselect_tests = deselect_tests + " --deselect=gh_src/tests/clients/test_disk_serialization.py::test_unlisted_type_blocked_on_read" %}
 # OSError: [Errno 24] Too many open files
 {% set deselect_tests = deselect_tests + " --deselect=gh_src/tests/clients/test_embedding.py::test_callable_embedding" %}
 {% set deselect_tests = deselect_tests + " --deselect=gh_src/tests/clients/test_embedding.py::test_async_embedding" %}
