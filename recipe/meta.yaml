@@ -33,7 +33,7 @@ requirements:
     - tqdm >=4.66.1
     - requests >=2.31.0
     - pydantic >=2.0
-    - litellm >=1.64.0
+    - litellm ==1.103.1
     - diskcache >=5.6.0
     - json-repair >=0.54.2
     - tenacity >=8.2.3
@@ -204,7 +204,7 @@ test:
     - sentencepiece
     # Solver for some reason used wrong versions from run section in tests
     - gepa ==0.0.27
-    - aiohttp ==3.13.5
+    - aiohttp
   commands:
     - pip check
     - PYTHONPATH=gh_src pytest -vv gh_src/tests {{ ignore_tests }} {{ deselect_tests }}  # [not win]
