@@ -203,8 +203,8 @@ test:
     - transformers
     - sentencepiece
     # Solver for some reason used wrong versions from run section in tests
-    - gepa ==0.0.27
-    - aiohttp ==3.13.5
+    - gepa
+    - aiohttp
   commands:
     - pip check
     - PYTHONPATH=gh_src pytest -vv gh_src/tests {{ ignore_tests }} {{ deselect_tests }}  # [not win]
